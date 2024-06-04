@@ -16,18 +16,6 @@ import java.util.Set;
 @Table(name = "orders")
 public class Order {
 	
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Long id;
-//	private Instant moment;
-//	private OrderStatus status;
-//
-//	@OneToOne
-//	@JoinColumn(name = "user_id")
-//	private User user;
-//	@ManyToMany(mappedBy = "items")
-//	private Set<Product> products = new HashSet<>();
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

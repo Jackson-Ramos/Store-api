@@ -15,22 +15,6 @@ import java.util.Set;
 @Table(name = "products")
 public class Product {
 	
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Long id;
-//	private String name;
-//	private String description;
-//	private Double price;
-//	private String imgUrl;
-//
-//	@ManyToMany()
-//	@JoinTable(
-//			name = "product_order",
-//			joinColumns = @JoinColumn(name = "product_id"),
-//			inverseJoinColumns = @JoinColumn(name = "order_id")
-//	)
-//	private Set<Order> items = new HashSet<>();
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

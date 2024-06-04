@@ -5,12 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
 @Table(name = "order_product")
-public class OrderProduct {
+public class OrderProduct implements Serializable {
+	
+	@Serial
+	private static final long serialVersionUID = 6628344467845971326L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

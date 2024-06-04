@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +15,10 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Serializable {
+	
+	@Serial
+	private static final long serialVersionUID = 6223776313355701508L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

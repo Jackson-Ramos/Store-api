@@ -1,5 +1,6 @@
-package com.jcode_development.store.model;
+package com.jcode_development.store.model.product;
 
+import com.jcode_development.store.model.OrderProduct;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

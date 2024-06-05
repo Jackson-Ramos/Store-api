@@ -1,7 +1,8 @@
 package com.jcode_development.store.exceptions.handler;
 
 import com.jcode_development.store.exceptions.ExceptionResponse;
-import com.jcode_development.store.exceptions.NotFounderException;
+import com.jcode_development.store.exceptions.NotFoundeException;
+import com.jcode_development.store.exceptions.RequiredObjectisNullException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -24,7 +25,7 @@ public class CustomizedExceptionHandler extends ResponseEntityExceptionHandler {
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(exceptionResponse);
 	}
 	
-	@ExceptionHandler(NotFounderException.class)
+	@ExceptionHandler(NotFoundeException.class)
 	public final ResponseEntity<ExceptionResponse> notFoundException(Exception exception, WebRequest request) {
 		ExceptionResponse exceptionResponse = new ExceptionResponse(
 				new Date(), exception.getMessage(), request.getDescription(false)
@@ -32,4 +33,11 @@ public class CustomizedExceptionHandler extends ResponseEntityExceptionHandler {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionResponse);
 	}
 	
+	@ExceptionHandler(RequiredObjectisNullException.class)
+	public final ResponseEntity<ExceptionResponse> badRequestException(Exception  exception, WebRequest request){
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(), exception.getMessage(), request.getDescription(false)
+		);
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exceptionResponse);
+	}
 }

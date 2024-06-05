@@ -7,15 +7,15 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class NotFounderException extends RuntimeException implements Serializable {
+public class NotFoundeException extends RuntimeException implements Serializable {
 	
 	@Serial
 	private static final long serialVersionUID = 300373281966559963L;
 	
-	public NotFounderException(String message) {
+	public NotFoundeException(String message) {
 		super(message);
 	}
 	
-	public NotFounderException() {
+	public NotFoundeException() {
 	}
 }

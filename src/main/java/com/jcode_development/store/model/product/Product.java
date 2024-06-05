@@ -26,10 +26,21 @@ public class Product implements Serializable {
 	private Long id;
 	
 	private String name;
+//	@Column(length = 1000)
 	private String description;
 	private Double price;
+//	@Column(length = 500)
 	private String imgUrl;
 	
 	@OneToMany(mappedBy = "product")
 	private Set<OrderProduct> items = new HashSet<>();
+	
+	public Product(ProductRequest request) {
+		this.id = null;
+		this.name = request.name();
+		this.description = request.description();
+		this.price = request.price();
+		this.imgUrl = request.imgUrl();
+	}
+	
 }

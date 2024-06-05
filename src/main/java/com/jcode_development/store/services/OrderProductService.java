@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderProductService {
 	
-	private final OrderProductRepository orderProductRepository;
-	pr
+//	private final OrderProductRepository orderProductRepository;
+//	pr
 }

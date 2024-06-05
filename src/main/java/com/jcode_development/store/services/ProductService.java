@@ -1,5 +1,6 @@
 package com.jcode_development.store.services;
 
+import com.jcode_development.store.controller.ProductController;
 import com.jcode_development.store.exceptions.NotFoundeException;
 import com.jcode_development.store.exceptions.RequiredObjectisNullException;
 import com.jcode_development.store.mapper.Mapper;
@@ -13,6 +14,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 @Service
 public class ProductService {
 	
@@ -24,6 +28,9 @@ public class ProductService {
 	
 	public ResponseEntity<Set<ProductResponse>> findAll(){
 		var listProducts = Mapper.parseObjects(productRepository.findAll(), ProductResponse.class);
+		for (ProductResponse productResponse : listProducts) {
+			productResponse.add(linkTo(methodOn(ProductController.class).findById(productResponse.getId())).withSelfRel());
+		}
 		return ResponseEntity.status(HttpStatus.OK).body(listProducts);
 	}
 	
@@ -33,6 +40,7 @@ public class ProductService {
 				() -> new NotFoundeException("Id " + id + "not folder!")),
 				ProductResponse.class
 		);
+		product.add(linkTo(methodOn(ProductController.class).findAll()).withRel("All products"));
 		return ResponseEntity.status(HttpStatus.OK).body(product);
 	}
 	

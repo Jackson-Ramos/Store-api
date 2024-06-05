@@ -1,6 +1,6 @@
 package com.jcode_development.store.repositories;
 
-import com.jcode_development.store.model.Order;
+import com.jcode_development.store.model.order.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

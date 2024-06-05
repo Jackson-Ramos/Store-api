@@ -1,4 +1,4 @@
-package com.jcode_development.store.model;
+package com.jcode_development.store.model.order;
 
 import com.jcode_development.store.model.product.Product;
 import jakarta.persistence.*;

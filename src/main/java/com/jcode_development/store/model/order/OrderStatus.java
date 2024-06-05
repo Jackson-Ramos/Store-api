@@ -1,4 +1,4 @@
-package com.jcode_development.store.model;
+package com.jcode_development.store.model.order;
 
 public enum OrderStatus {
 	PENDING,      // Pedido foi criado, mas ainda não processado

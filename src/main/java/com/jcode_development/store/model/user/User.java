@@ -1,4 +1,4 @@
-package com.jcode_development.store.model;
+package com.jcode_development.store.model.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

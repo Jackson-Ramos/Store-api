@@ -1,11 +1,10 @@
 package com.jcode_development.store.model.product;
 
-import com.jcode_development.store.model.OrderProduct;
+import com.jcode_development.store.model.order.OrderProduct;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serial;
 import java.io.Serializable;

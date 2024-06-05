@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "products")
-public class Product implements Serializable {
+public class Product extends RepresentationModel<Product> implements Serializable {
 	
 	@Serial
 	private static final long serialVersionUID = 6223776313355701508L;
@@ -25,11 +26,16 @@ public class Product implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column()
 	private String name;
-//	@Column(length = 1000)
+	
+	@Column(length = 1000)
 	private String description;
+	
+	@Column()
 	private Double price;
-//	@Column(length = 500)
+	
+	@Column(length = 500)
 	private String imgUrl;
 	
 	@OneToMany(mappedBy = "product")

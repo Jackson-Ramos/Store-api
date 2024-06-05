@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS order_product
+CREATE TABLE order_product
 (
     id         BIGINT AUTO_INCREMENT PRIMARY KEY,
     order_id   BIGINT,

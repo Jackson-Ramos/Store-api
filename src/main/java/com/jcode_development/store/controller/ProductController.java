@@ -20,22 +20,25 @@ public class ProductController implements ProductControllerOpenApi {
 		this.service = service;
 	}
 	
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public ResponseEntity<Set<ProductResponse>> findAll() {
 		return service.findAll();
 	}
 	
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public ResponseEntity<ProductResponse> findById(@PathVariable Long id) {
 		return service.findById(id);
 	}
 	
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
+	)
 	public ResponseEntity<Void> save(@RequestBody ProductRequest request) {
 		return service.save(request);
 	}
 	
-	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public ResponseEntity<Void> update(@RequestBody ProductRequest request) {
 		return service.update(request);
 	}
